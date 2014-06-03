@@ -1,4 +1,7 @@
-<header class="banner navbar navbar-clear navbar-default navbar-fixed-top" role="banner">
+<?php
+  $navbar_style = get_field('navbar_style', 'options');
+?>
+<header class="banner navbar navbar-clear navbar-default <?php echo $navbar_style; ?>" role="banner">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
