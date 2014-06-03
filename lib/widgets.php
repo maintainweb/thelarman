@@ -4,19 +4,11 @@
  */
 function roots_widgets_init() {
   // Sidebars
-  register_sidebar(array(
-    'name'          => __('Primary', 'thelarman'),
-    'id'            => 'sidebar-primary',
-    'before_widget' => '<section class="widget %1$s %2$s">',
-    'after_widget'  => '</section>',
-    'before_title'  => '<h3>',
-    'after_title'   => '</h3>',
-  ));
 
   register_sidebar(array(
     'name'          => __('Footer', 'thelarman'),
     'id'            => 'sidebar-footer',
-    'before_widget' => '<section class="widget col-xs-3 col-sm-3 col-md-3 col-lg-3 %1$s %2$s">',
+    'before_widget' => '<section class="widget col-xs-4 col-sm-4 col-md-4 col-lg-4 %1$s %2$s">',
     'after_widget'  => '</section>',
     'before_title'  => '<h3>',
     'after_title'   => '</h3>',
