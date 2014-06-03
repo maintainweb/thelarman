@@ -22,6 +22,7 @@ var Roots = {
   // All pages
   common: {
     init: function() {
+      /*
       var options = {
         autoPlay: true,
         cycle: true,
@@ -29,7 +30,8 @@ var Roots = {
         autoPlayDelay: 4000
       };
       var sequence = $("#sequence").sequence(options).data("sequence");
-
+      */
+      /*
       $.stellar({
         horizontalOffset: 0,
         verticalOffset: 0,
@@ -37,12 +39,7 @@ var Roots = {
         scrollProperty: 'scroll',
         positionProperty: 'position'
       });
-
-      $('.navbar-clear').affix({
-        offset: {
-          top: 200
-        }
-      });
+      */
 
     }
   },

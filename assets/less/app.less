@@ -102,12 +102,11 @@ body.singular {
 
 .banner {
    &.navbar-clear {
-      background-color: fade(@navbar-clear-bg, 40%);
+      /*background-color: fade(@navbar-clear-bg, 40%);
       .transition(0.5s 0 all ease);
-      &.affix {
-         background-color: fade(@navbar-clear-bg, 95%);
-         .transition(0.5s 0 all ease);
-      }
+      */
+      border: 0;
+      background-color: transparent;
    }
    .navbar-brand{
       @brand-height: (@navbar-height - 30px);
@@ -138,6 +137,42 @@ body.singular {
    padding-top: round(@content-spacing-top);
    padding-bottom: round(@content-spacing-bottom);
 }
+
+.page-header {
+  margin: 0;
+  #header-background-image {
+    -moz-box-shadow:    inset 0 0 10px rgba(0,0,0,0.2);
+    -webkit-box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+    box-shadow:         inset 0 0 10px rgba(0,0,0,0.2);
+    .text-center;
+    text-transform: uppercase;
+    display: block;
+    margin-left: -15px;
+    margin-right: -15px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    .header-inner {
+      h1 {
+        margin: 0;
+        padding-top: round(@content-spacing-top);
+        font-size: 72px!important;
+        color: #fff;
+      }
+      .lead {
+        .primary-color-base;
+        font-size: 54px!important;
+      }
+    }
+  }
+  #header-image {
+    .text-center;
+    margin-top: -30px;
+    margin-bottom: 30px;
+  }
+}
+
+
 
 section.single-page-section {
    min-height: 250px;
