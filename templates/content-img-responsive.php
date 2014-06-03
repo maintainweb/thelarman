@@ -1,5 +1,6 @@
 <?php
   $image = get_sub_field('image');
+
         if( !empty($image) ):
 
           // vars
@@ -9,10 +10,20 @@
           $caption = $image['caption'];
 
           // sizes
-          $size = 'large';
-          $large = $image['sizes'][ $size ];
-          $width = $image['sizes'][ $size . '-width' ];
-          $height = $image['sizes'][ $size . '-height' ];
+          $size_thumbnail = 'thumbnail';
+          $large = $image['sizes'][ $size_thumbnail ];
+          $width = $image['sizes'][ $size_thumbnail . '-width' ];
+          $height = $image['sizes'][ $size_thumbnail . '-height' ];
+
+          $size_medium = 'medium';
+          $large = $image['sizes'][ $size_medium ];
+          $width = $image['sizes'][ $size_medium . '-width' ];
+          $height = $image['sizes'][ $size_medium . '-height' ];
+
+          $size_large = 'large';
+          $large = $image['sizes'][ $size_large ];
+          $width = $image['sizes'][ $size_large . '-width' ];
+          $height = $image['sizes'][ $size_large . '-height' ];
 
 ?>
 
