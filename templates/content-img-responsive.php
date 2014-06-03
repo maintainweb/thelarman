@@ -1,6 +1,12 @@
 <?php
   $image = get_sub_field('image');
 
+  if( get_sub_field('img_responsive') ){
+    $class = 'img-responsive';
+  } else {
+    $class = '';
+  }
+
         if( !empty($image) ):
 
           // vars
@@ -27,6 +33,6 @@
 
 ?>
 
-<img class="img-responsive" alt="<?php echo $alt; ?>" title="<?php echo $title; ?>" src="<?php echo $large; ?>" width="<?php echo $width; ?>" height="<?php echo $height; ?>" >
+<img class="<?php echo $class; ?>" alt="<?php echo $alt; ?>" title="<?php echo $title; ?>" src="<?php echo $large; ?>" width="<?php echo $width; ?>" height="<?php echo $height; ?>" >
 
 <?php endif; ?>
