@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Single Page Layout Template
+Template Name: Single Project Template
 */
 ?>
 
