@@ -13,12 +13,12 @@
   $tertiarycolor = get_field('tertiary_color', 'options');
 
   $lead_top = get_field('lead_top');
-  $page_title = get_field('page_title');
+  $custom_page_title = get_field('page_title');
   $lead_bottom = get_field('lead_bottom');
 
   $header_background_image = get_field('header_background_image');
   if( empty($header_background_image) ){
-    $header_image = get_field('default_header_background_image', 'options');
+    $header_background_image = get_field('default_header_background_image', 'options');
   }
   // vars
   $header_background_image_url = $header_background_image['url'];
@@ -27,7 +27,7 @@
   $header_background_image_caption = $header_background_image['caption'];
 
   // size
-  $size = 'large';
+  $size = 'header-image';
   $headerback = $header_background_image['sizes'][ $size ];
   $headerbackwidth = $header_background_image['sizes'][ $size . '-width' ];
   $headerbackheight = $header_background_image['sizes'][ $size . '-height' ];
@@ -41,7 +41,7 @@
   $header_image_caption = $header_image['caption'];
 
   // size
-  $size = 'header-image';
+  $size = 'large';
   $headerimage = $header_image['sizes'][ $size ];
   $headerimagewidth = $header_image['sizes'][ $size . '-width' ];
   $headerimageheight = $header_image['sizes'][ $size . '-height' ];
@@ -64,7 +64,7 @@
             }
           </style>
           <?php if( !empty($lead_top) ){ ?><p class="lead lead-top"><?php echo $lead_top; ?></p><?php } ?>
-          <h1><?php if( !empty($page_title) ){ ?><?php echo roots_title(); ?><?php } else { echo $page_title; } ?></h1>
+          <h1><?php if( empty($custom_page_title) ){ ?><?php echo roots_title(); ?><?php } else { echo $custom_page_title; } ?></h1>
           <?php if( !empty($lead_bottom) ){ ?><p class="lead lead-bottom"><?php echo $lead_bottom; ?></p><?php } ?>
       </div>
     </div>
