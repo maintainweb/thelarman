@@ -61,23 +61,6 @@
 .secondary-color-darker1  {color: @darker1;}
 .secondary-color-darker2  {color: @darker2;}
 
-
-// WebKit
-@-webkit-keyframes sky-animation {
-  from  { background-position: 0 100%; }
-  to    { background-position: 0 0; }
-}
-
-// Spec and IE10+
-@keyframes sky-animation {
-  from  { background-position: 0 100%; }
-  to    { background-position: 0 0; }
-}
-
-.sky-animation {
-  .animation(sky-animation 14s linear infinite alternate);
-}
-
 /* ==========================================================================
    Base
    ========================================================================== */
@@ -101,6 +84,7 @@ body.singular {
    ========================================================================== */
 
 .banner {
+  text-transform: uppercase;
    &.navbar-clear {
       /*background-color: fade(@navbar-clear-bg, 40%);
       .transition(0.5s 0 all ease);
@@ -140,6 +124,7 @@ body.singular {
 
 .page-header {
   margin: 0;
+  border-bottom: 0;
   #header-background-image {
     -moz-box-shadow:    inset 0 0 10px rgba(0,0,0,0.2);
     -webkit-box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
@@ -153,25 +138,41 @@ body.singular {
     background-repeat: no-repeat;
     background-position: bottom center;
     .header-inner {
+      padding-top: round(@content-spacing-top);
       h1 {
         margin: 0;
-        padding-top: round(@content-spacing-top);
-        font-size: 72px!important;
-        color: #fff;
+        font-size: 96px!important;
+        font-weight: normal;
+        color: #00C0EC;
       }
       .lead {
-        .primary-color-base;
-        font-size: 54px!important;
+        color: #fff;
+        font-size: 32px!important;
+        &.lead-top {
+          margin-bottom: 0;
+          padding-bottom: 0;
+        }
       }
     }
   }
   #header-image {
     .text-center;
-    margin-top: -30px;
+    margin-top: -60px;
     margin-bottom: 30px;
+  }
+  img {
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
+
+body.home {
+  .lead:extend(h1) {} // extend inside media
+  h1 {
+    color: #fff;
+  }
+}
 
 
 section.single-page-section {
@@ -238,7 +239,9 @@ section.single-page-section {
    Primary Content
    ========================================================================== */
 
-.main { }
+.main {
+  text-align: center;
+}
 
 /* Gallery Shortcode */
 .gallery-row { padding: 15px 0; }
@@ -269,7 +272,39 @@ section.single-page-section {
    Footer
    ========================================================================== */
 
-.content-info { }
+.content-info {
+    -moz-box-shadow:    inset 0 0 10px rgba(0,0,0,0.2);
+    -webkit-box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+    box-shadow:         inset 0 0 10px rgba(0,0,0,0.2);
+    //margin-left: -15px;
+    //margin-right: -15px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+  .widget {
+    &:first-of-type(1n) {
+      text-align: left;
+    }
+    &:nth-of-type(2n) {
+      text-align: center;
+      ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        text-align: center;
+        li {
+          padding: 0;
+          margin: 0;
+          list-style: none;
+          text-align: center;
+        }
+      }
+    }
+    &:first-of-type(3n) {
+      text-align: left;
+    }
+  }
+}
 
 
 
