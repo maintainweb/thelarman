@@ -5,7 +5,7 @@
 function roots_widgets_init() {
   // Sidebars
   register_sidebar(array(
-    'name'          => __('Primary', 'roots'),
+    'name'          => __('Primary', 'milesmarketeer'),
     'id'            => 'sidebar-primary',
     'before_widget' => '<section class="widget %1$s %2$s">',
     'after_widget'  => '</section>',
@@ -14,9 +14,9 @@ function roots_widgets_init() {
   ));
 
   register_sidebar(array(
-    'name'          => __('Footer', 'roots'),
+    'name'          => __('Footer', 'milesmarketeer'),
     'id'            => 'sidebar-footer',
-    'before_widget' => '<section class="widget %1$s %2$s">',
+    'before_widget' => '<section class="widget col-xs-3 col-sm-3 col-md-3 col-lg-3 %1$s %2$s">',
     'after_widget'  => '</section>',
     'before_title'  => '<h3>',
     'after_title'   => '</h3>',
@@ -42,9 +42,9 @@ class Roots_Vcard_Widget extends WP_Widget {
   );
 
   function __construct() {
-    $widget_ops = array('classname' => 'widget_roots_vcard', 'description' => __('Use this widget to add a vCard', 'roots'));
+    $widget_ops = array('classname' => 'widget_roots_vcard', 'description' => __('Use this widget to add a vCard', 'milesmarketeer'));
 
-    $this->WP_Widget('widget_roots_vcard', __('Roots: vCard', 'roots'), $widget_ops);
+    $this->WP_Widget('widget_roots_vcard', __('Roots: vCard', 'milesmarketeer'), $widget_ops);
     $this->alt_option_name = 'widget_roots_vcard';
 
     add_action('save_post', array(&$this, 'flush_widget_cache'));
@@ -124,7 +124,7 @@ class Roots_Vcard_Widget extends WP_Widget {
       ${$name} = isset($instance[$name]) ? esc_attr($instance[$name]) : '';
     ?>
     <p>
-      <label for="<?php echo esc_attr($this->get_field_id($name)); ?>"><?php _e("{$label}:", 'roots'); ?></label>
+      <label for="<?php echo esc_attr($this->get_field_id($name)); ?>"><?php _e("{$label}:", 'milesmarketeer'); ?></label>
       <input class="widefat" id="<?php echo esc_attr($this->get_field_id($name)); ?>" name="<?php echo esc_attr($this->get_field_name($name)); ?>" type="text" value="<?php echo ${$name}; ?>">
     </p>
     <?php
