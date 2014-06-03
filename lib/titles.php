@@ -7,7 +7,7 @@ function roots_title() {
     if (get_option('page_for_posts', true)) {
       return get_the_title(get_option('page_for_posts', true));
     } else {
-      return __('Latest Posts', 'milesmarketeer');
+      return __('Latest Posts', 'thelarman');
     }
   } elseif (is_archive()) {
     $term = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy'));
@@ -16,21 +16,21 @@ function roots_title() {
     } elseif (is_post_type_archive()) {
       return apply_filters('the_title', get_queried_object()->labels->name);
     } elseif (is_day()) {
-      return sprintf(__('Daily Archives: %s', 'milesmarketeer'), get_the_date());
+      return sprintf(__('Daily Archives: %s', 'thelarman'), get_the_date());
     } elseif (is_month()) {
-      return sprintf(__('Monthly Archives: %s', 'milesmarketeer'), get_the_date('F Y'));
+      return sprintf(__('Monthly Archives: %s', 'thelarman'), get_the_date('F Y'));
     } elseif (is_year()) {
-      return sprintf(__('Yearly Archives: %s', 'milesmarketeer'), get_the_date('Y'));
+      return sprintf(__('Yearly Archives: %s', 'thelarman'), get_the_date('Y'));
     } elseif (is_author()) {
       $author = get_queried_object();
-      return sprintf(__('Author Archives: %s', 'milesmarketeer'), $author->display_name);
+      return sprintf(__('Author Archives: %s', 'thelarman'), $author->display_name);
     } else {
       return single_cat_title('', false);
     }
   } elseif (is_search()) {
-    return sprintf(__('Search Results for %s', 'milesmarketeer'), get_search_query());
+    return sprintf(__('Search Results for %s', 'thelarman'), get_search_query());
   } elseif (is_404()) {
-    return __('Not Found', 'milesmarketeer');
+    return __('Not Found', 'thelarman');
   } else {
     return get_the_title();
   }

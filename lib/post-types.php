@@ -19,11 +19,17 @@ function project_post_type() {
     'not_found'           => __( 'Not found', 'thelarman' ),
     'not_found_in_trash'  => __( 'Not found in Trash', 'thelarman' ),
   );
+    $rewrite = array(
+        'slug'                => 'projects',
+        'with_front'          => false,
+        'pages'               => true,
+        'feeds'               => true,
+    );
   $args = array(
     'label'               => __( 'project', 'thelarman' ),
-    'description'         => __( 'Post Type Description', 'thelarman' ),
+    'description'         => __( 'Projects pages', 'thelarman' ),
     'labels'              => $labels,
-    'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'trackbacks', 'revisions', 'custom-fields', 'page-attributes', 'post-formats', ),
+    'supports'            => array( 'title', 'editor', 'excerpt', /*'author',*/ 'thumbnail', /*'comments',*/ /*'trackbacks',*/ 'revisions', 'custom-fields', 'page-attributes', /*'post-formats',*/ ),
     'taxonomies'          => array( 'category', 'post_tag' ),
     'hierarchical'        => false,
     'public'              => true,
@@ -37,6 +43,7 @@ function project_post_type() {
     'has_archive'         => true,
     'exclude_from_search' => false,
     'publicly_queryable'  => true,
+    'rewrite'             => $rewrite,
     'capability_type'     => 'page',
   );
   register_post_type( 'project', $args );
