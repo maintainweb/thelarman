@@ -27,7 +27,7 @@
   $header_background_image_caption = $header_background_image['caption'];
 
   // size
-  $size = 'header-image';
+  $size = 'header-background-image';
   $headerback = $header_background_image['sizes'][ $size ];
   $headerbackwidth = $header_background_image['sizes'][ $size . '-width' ];
   $headerbackheight = $header_background_image['sizes'][ $size . '-height' ];
@@ -41,7 +41,7 @@
   $header_image_caption = $header_image['caption'];
 
   // size
-  $size = 'large';
+  $size = 'header-image';
   $headerimage = $header_image['sizes'][ $size ];
   $headerimagewidth = $header_image['sizes'][ $size . '-width' ];
   $headerimageheight = $header_image['sizes'][ $size . '-height' ];
