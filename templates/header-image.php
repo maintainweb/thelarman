@@ -41,7 +41,7 @@
   $header_image_caption = $header_image['caption'];
 
   // size
-  $size = 'large';
+  $size = 'medium';
   $headerimage = $header_image['sizes'][ $size ];
   $headerimagewidth = $header_image['sizes'][ $size . '-width' ];
   $headerimageheight = $header_image['sizes'][ $size . '-height' ];

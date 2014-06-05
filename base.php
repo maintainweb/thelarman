@@ -16,7 +16,7 @@
       get_template_part('templates/header');
     }
   ?>
-  <div class="container-fluid">
+  <div class="outer-wrap container-fluid">
     <div class="row">
       <?php get_template_part('templates/page', 'header'); ?>
     </div>

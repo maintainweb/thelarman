@@ -65,9 +65,7 @@
    Base
    ========================================================================== */
 
-body {
-  overflow-y: hidden;
-}
+
 
 
 body.logged-in.admin-bar {
@@ -81,6 +79,7 @@ body.singular {
       margin-top: -175px;
       z-index: 1500;
       position: relative;
+      top: 0;
    }
 }
 
@@ -96,6 +95,7 @@ body.singular {
       */
       border: 0;
       background-color: transparent;
+      font-weight: 700;
    }
    .navbar-brand{
       @brand-height: (@navbar-height - 30px);
@@ -128,6 +128,15 @@ body.singular {
    min-height: round(@content-spacing-top * 3);
 }
 
+.outer-wrap.container-fluid {
+  padding-right: 0;
+  padding-left: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
 .page-header {
   margin: 0;
   border-bottom: 0;
@@ -138,9 +147,6 @@ body.singular {
     .text-center;
     text-transform: uppercase;
     display: block;
-    overflow-y: hidden;
-    margin-left: -15px;
-    margin-right: -15px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom center;
@@ -283,9 +289,6 @@ section.single-page-section {
     -moz-box-shadow:    inset 0 0 10px rgba(0,0,0,0.2);
     -webkit-box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
     box-shadow:         inset 0 0 10px rgba(0,0,0,0.2);
-    overflow: hidden;
-    margin-left: -15px;
-    margin-right: -15px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top center;
@@ -325,6 +328,7 @@ section.single-page-section {
     p {
       &:first-of-type {
         text-transform: uppercase;
+        font-weight: 700;
         margin-top: 20px;
       }
       color: #fff;
