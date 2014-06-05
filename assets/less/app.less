@@ -65,6 +65,11 @@
    Base
    ========================================================================== */
 
+body {
+  overflow-y: hidden;
+}
+
+
 body.logged-in.admin-bar {
    .navbar-fixed-top {
       top: 32px;
@@ -120,6 +125,7 @@ body.singular {
 .content {
    padding-top: round(@content-spacing-top);
    padding-bottom: round(@content-spacing-bottom);
+   min-height: round(@content-spacing-top * 3);
 }
 
 .page-header {
@@ -132,6 +138,7 @@ body.singular {
     .text-center;
     text-transform: uppercase;
     display: block;
+    overflow-y: hidden;
     margin-left: -15px;
     margin-right: -15px;
     background-size: cover;
@@ -276,8 +283,9 @@ section.single-page-section {
     -moz-box-shadow:    inset 0 0 10px rgba(0,0,0,0.2);
     -webkit-box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
     box-shadow:         inset 0 0 10px rgba(0,0,0,0.2);
-    //margin-left: -15px;
-    //margin-right: -15px;
+    overflow: hidden;
+    margin-left: -15px;
+    margin-right: -15px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top center;
@@ -290,20 +298,51 @@ section.single-page-section {
         text-align: center;
         li {
           padding: 0;
-          margin: 0;
+          margin: 0 0 10px;
           list-style: none;
           text-align: center;
+          &:first-of-type {
+            margin-top: 20px;
+          }
+          a {
+            color: #fff;
+            text-transform: uppercase;
+            text-decoration: none;
+          }
         }
+    }
+  }
+  section {
+    &:first-of-type {
+      padding-left: 80px;
+    }
+    &:nth-of-type(2n) {
+      .footer-navigation;
+    }
+    &:last-of-type {
+      padding-left: 60px;
+    }
+    p {
+      &:first-of-type {
+        text-transform: uppercase;
+        margin-top: 20px;
+      }
+      color: #fff;
+      a {
+        color: #fff;
+        text-decoration: none;
+      }
     }
   }
   .widget {
     &:first-of-type(1n) {
       text-align: left;
     }
-    &:nth-of-type(2n):extend(.footer-navigation) {
-
+    &:nth-of-type(2n) {
+      .footer-navigation;
     }
-    &:first-of-type(3n) {
+
+    &:nth-of-type(3n) {
       text-align: left;
     }
   }
