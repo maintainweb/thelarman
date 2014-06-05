@@ -1,14 +1,24 @@
-<?php while (have_posts()) : the_post(); ?>
-  <article <?php post_class(); ?>>
-    <header>
-      <h1 class="entry-title"><?php the_title(); ?></h1>
-      <?php get_template_part('templates/entry-meta'); ?>
-    </header>
-    <div class="entry-content">
-      <?php the_content(); ?>
-    </div>
+<?php
+$size = 'large';
+$image_id = get_post_thumbnail_id();
+$image_url = wp_get_attachment_image_src($image_id, $size);
+$image_url = $image_url[0];
+$classes = array(
+    'col-xs-12',
+    'col-sm-6',
+    'col-md-6',
+    'col-lg-6',
+ );
+?>
+  <article <?php post_class($classes); ?>>
+    <a href="<?php the_permalink(); ?>" class="">
+    <?php
+    if ( has_post_thumbnail() ) {
+      the_post_thumbnail($size, array('class' => 'img-responsive'));
+    }
+    ?>
+    </a>
     <footer>
-      <?php wp_link_pages(array('before' => '<nav class="page-nav"><p>' . __('Pages:', 'thelarman'), 'after' => '</p></nav>')); ?>
+      <h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
     </footer>
   </article>
-<?php endwhile; ?>

@@ -1,1 +1,1 @@
-<?php get_template_part('templates/single', 'project'); ?>
+<?php get_template_part('templates/content', 'single'); ?>
