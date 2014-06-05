@@ -41,7 +41,7 @@
   $header_image_caption = $header_image['caption'];
 
   // size
-  $size = 'medium';
+  $size = 'large';
   $headerimage = $header_image['sizes'][ $size ];
   $headerimagewidth = $header_image['sizes'][ $size . '-width' ];
   $headerimageheight = $header_image['sizes'][ $size . '-height' ];
@@ -70,6 +70,8 @@
     </div>
     <?php if( !empty($header_image) ){ ?>
     <div id="header-image" class="">
-      <img class="img-responsive" width="<?php echo $headerimagewidth; ?>px" height="<?php echo $headerimageheight; ?>px" border="0" alt="<?php echo $header_image_alt; ?>" title="<?php echo $header_image_title; ?>" src="<?php echo $headerimage; ?>">
+      <div class="inner-wrap">
+        <img class="img-responsive" width="<?php echo $headerimagewidth; ?>px" height="<?php echo $headerimageheight; ?>px" border="0" alt="<?php echo $header_image_alt; ?>" title="<?php echo $header_image_title; ?>" src="<?php echo $headerimage; ?>">
+      </div>
     </div>
     <?php } ?>
