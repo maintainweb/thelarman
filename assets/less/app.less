@@ -144,16 +144,37 @@ body.single {
         padding-top: round(@content-spacing-top);
         h1 {
           margin: 0;
-          font-size: 96px!important;
-          font-weight: normal;
+          font-size: 24px;
+          font-weight: 400;
           color: #00C0EC;
+          letter-spacing: 4px;
+          @media (min-width: @screen-sm-min) {
+            font-size: 24px;
+          }
+          @media (min-width: @screen-md-min) {
+            font-size: 60px;
+          }
+          @media (min-width: @screen-lg-min) {
+            font-size: 100px;
+          }
         }
         .lead {
           color: #fff;
-          font-size: 32px!important;
+          font-size: 18px;
+          letter-spacing: 1px;
           &.lead-top {
             margin-bottom: 0;
             padding-bottom: 0;
+          }
+          @media (min-width: @screen-sm-min) {
+            font-size: 18px;
+          }
+          @media (min-width: @screen-md-min) {
+            font-size: 28px;
+          }
+          @media (min-width: @screen-lg-min) {
+            font-size: 32px;
+            letter-spacing: 2px;
           }
         }
       }
@@ -186,31 +207,101 @@ body.home {
   .content {
     padding-top: 0;
     .main {
-      h1 {
-        color: @gray;
+      .page-title-wrap {
+        position: relative;
+        margin-left: 15px;
+        margin-right: 15px;
+        h1 {
+          color: @gray;
+          text-transform: uppercase;
+          position: relative;
+          letter-spacing: 2px;
+          display: block;
+          font-size: 18px;
+            @media (min-width: @screen-sm-min) {
+              font-size: 24px;
+            }
+            @media (min-width: @screen-md-min) {
+              font-size: 36px;
+              letter-spacing: 4px;
+            }
+            @media (min-width: @screen-lg-min) {
+              font-size: 42px;
+              letter-spacing: 4px;
+            }
+          &:after {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            display: inline-block;
+            content: " ";
+            width: 100%;
+            color: @gray;
+            background-color: @gray;
+            height: 1px;
+            z-index: 1;
+          }
+          span {
+            z-index: 2;
+            position: relative;
+            background-color: #fff;
+            padding-right: 15px;
+            padding-left: 15px;
+            @media (min-width: @screen-sm-min) {
+
+            }
+            @media (min-width: @screen-md-min) {
+              padding-right: 30px;
+              padding-left: 30px;
+            }
+            @media (min-width: @screen-lg-min) {
+              padding-right: 45px;
+              padding-left: 45px;
+            }
+          }
+        }
       }
       article {
         padding-left: 15px;
         padding-right: 15px;
+        margin-top: 15px;
+        margin-bottom: 15px;
         footer {
           position: absolute;
           right: 15px;
           left: 15px;
           bottom: 0;
-          background-color: rgba(255,255,255, 0.6);
-          width: 100%;
-          padding: 5px 10px;
+          background-color: transparent;
           text-align: left;
           h2 {
+            background-color: rgba(255,255,255, 0.6);
             font-weight: 700;
             font-size: 18px;
+            margin-top: 0;
+            margin-bottom: 0;
+            padding: 15px 10px;
             color: #FE008B;
             text-transform: uppercase;
-            a {
-              color: #FE008B;
-              text-decoration: none;
+            text-decoration: none;
+            display: inline-block;
+            float: left;
+            width: 90.5%;
+            &:after {
+              background-color: rgba(255,255,255, 0.6);
+              content: "+";
+              font-weight: 400;
+              font-size: 60px;
+              margin-top: 0;
+              margin-bottom: 0;
+              padding: 15px 10px;
+              width: 9%;
+              line-height: 18px;
+              display: inline-block;
+              position: absolute;
+              right: 0;
+              top: 0;
+              bottom: 0;
             }
-
           }
         }
       }
@@ -221,66 +312,9 @@ body.home {
   }
 }
 
-
-
-
-section.single-page-section {
-   min-height: 250px;
-   background-size: cover;
-   background-repeat: repeat;
-   background-position: 0 0; // must be 0 0 if using stellar.js
-   //background-attachment: fixed;
-   background-attachment: scroll;
-   overflow: visible;
-   position: relative;
-   top: 0;
-   left: 0;
-   display: block;
-   margin-left: -(@grid-gutter-width * 0.5);
-   margin-right: -(@grid-gutter-width * 0.5);
-   &:first-of-type {
-      margin-top: -(@content-spacing-top * 1.0);
-      padding-top: (@content-spacing-top * 1.0);
-   }
-   .jumbotron {
-    .text-center;
-      .main-image {
-        padding: 30px;
-        .center-block;
-        .size(90%; 90%);
-        img {
-          border: 15px solid @primary-color;
-          .transition(0.5s 0 all ease);
-          &:hover {
-            border: 15px solid @complement1;
-            .transition(0.5s 0 all ease);
-          }
-        }
-      }
-   }
-   &.single-page-section-call-to-action {
-    height: (@call-to-action-height * 6);
-    padding-top: (((@call-to-action-height * 7) / 2) - @call-to-action-height);
-    padding-bottom: (((@call-to-action-height * 7) / 2) - @call-to-action-height);
-    .call-to-action {
-      .secondary-background-base;
-      display: block;
-      width: 100%;
-      height: @call-to-action-height;
-      .box-shadow(inset 0 0 15px rgba(0,0,0,0.4));
-      .transition(0.5s 0 all ease);
-      &:hover {
-        .box-shadow(inset 0 0 30px rgba(0,0,0,0.6));
-        .transition(0.5s 0 all ease);
-      }
-      p {
-        font-size: 24px;
-        padding: 0;
-        line-height: @call-to-action-height;
-        height: @call-to-action-height;
-        margin: 0;
-      }
-    }
+body.about {
+  .content {
+    padding-top: 0;
   }
 }
 
@@ -290,6 +324,10 @@ section.single-page-section {
 
 .main {
   text-align: center;
+  color: @gray-light;
+  p {
+    font-size: 18px;
+  }
 }
 
 /* Gallery Shortcode */
@@ -328,6 +366,7 @@ section.single-page-section {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top center;
+    margin-top: round(@content-spacing-top * 1.5);;
   .footer-navigation {
       text-align: center;
       ul {
@@ -381,7 +420,6 @@ section.single-page-section {
     &:nth-of-type(2n) {
       .footer-navigation;
     }
-
     &:nth-of-type(3n) {
       text-align: left;
     }

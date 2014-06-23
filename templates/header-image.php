@@ -1,4 +1,6 @@
 <?php
+
+
   $header_height = get_field('header_height');
   if( empty($header_height) ){
     $header_height = get_field('default_header_height', 'options');
@@ -41,7 +43,10 @@
   $header_image_caption = $header_image['caption'];
 
   // size
-  $size = 'header-image';
+  $size = get_field('header_image_size');
+  if( empty($size) ):
+    $size = 'header-image';
+  endif;
   $headerimage = $header_image['sizes'][ $size ];
   $headerimagewidth = $header_image['sizes'][ $size . '-width' ];
   $headerimageheight = $header_image['sizes'][ $size . '-height' ];
