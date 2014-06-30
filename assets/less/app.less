@@ -38,29 +38,6 @@
 .primary-color-darker1  {color: @darker1;}
 .primary-color-darker2  {color: @darker2;}
 
-
-/* Secondary Color Mixin */
-@base: #F47A20;
-@secondary-color: @base;
-.secondary-background-base   {background-color: @base;}
-.secondary-background-complement1   {background-color: @complement1;}
-.secondary-background-complement2 {background-color: @complement2;}
-.secondary-background-lighten1  {background-color: @lighten1;}
-.secondary-background-lighten2  {background-color: @lighten2;}
-.secondary-background-lighter1   {background-color: @lighter1;}
-.secondary-background-lighter2 {background-color: @lighter2;}
-.secondary-background-darker1  {background-color: @darker1;}
-.secondary-background-darker2  {background-color: @darker2;}
-.secondary-color-base   {color: @base;}
-.secondary-color-complement1   {color: @complement1;}
-.secondary-color-complement2 {color: @complement2;}
-.secondary-color-lighten1  {color: @lighten1;}
-.secondary-color-lighten2  {color: @lighten2;}
-.secondary-color-lighter1   {color: @lighter1;}
-.secondary-color-lighter2 {color: @lighter2;}
-.secondary-color-darker1  {color: @darker1;}
-.secondary-color-darker2  {color: @darker2;}
-
 /* ==========================================================================
    Base
    ========================================================================== */
@@ -110,9 +87,13 @@ body.logged-in.admin-bar {
    Content
    ========================================================================== */
 
+.blue {
+  .primary-color-base;
+}
+
 body.single {
    .wrap.container {
-      margin-top: -225px;
+      margin-top: 0;
       z-index: 1500;
       position: relative;
       top: 0;
@@ -141,48 +122,82 @@ body.single {
       background-repeat: no-repeat;
       background-position: bottom center;
       .header-inner {
-        padding-top: round(@content-spacing-top);
+        padding-top: round(@content-spacing-top - 10);
         h1 {
           margin: 0;
           font-size: 24px;
           font-weight: 400;
-          color: #00C0EC;
+          color: #fff;
           letter-spacing: 4px;
           @media (min-width: @screen-sm-min) {
-            font-size: 24px;
+            font-size: 42px;
           }
           @media (min-width: @screen-md-min) {
             font-size: 60px;
           }
           @media (min-width: @screen-lg-min) {
-            font-size: 100px;
+            font-size: 90px;
           }
         }
         .lead {
-          color: #fff;
-          font-size: 18px;
+          .primary-color-base;
+          font-size: @font-size-large;
           letter-spacing: 1px;
           &.lead-top {
             margin-bottom: 0;
             padding-bottom: 0;
           }
           @media (min-width: @screen-sm-min) {
-            font-size: 18px;
+            font-size: @font-size-large;
           }
           @media (min-width: @screen-md-min) {
-            font-size: 28px;
+            font-size: 24px;
           }
           @media (min-width: @screen-lg-min) {
-            font-size: 32px;
+            font-size: 28px;
             letter-spacing: 2px;
+          }
+        }
+        .project-info {
+          position: relative;
+          text-align: left;
+          text-transform: capitalize;
+          color: #fff!important;
+          &:before {
+            position: absolute;
+            left: 0;
+            top: -15px;
+            right: 0;
+            padding-right: 15px;
+            padding-left: 15px;
+            display: inline-block;
+            content: " ";
+            width: 100%;
+            background-color: @gray;
+            height: 2px;
+          }
+          p {
+            margin-left: 0;
+            margin-bottom: 0;
+          }
+        }
+        .project-nav {
+          position: absolute;
+          right: 15px;
+          top: 5px;
+          a {
+            color: @gray-light!important;
+            &.prev {
+              padding-right: 30px;
+            }
           }
         }
       }
     }
     #header-image {
       .text-center;
-      margin-top: -(@navbar-height + 50);
-      margin-bottom: 30px;
+      margin-top: -(@navbar-height + 20);
+      margin-bottom: 0;
     }
     img {
       margin-left: auto;
@@ -195,15 +210,55 @@ body.single {
 @content-spacing-top: (@navbar-height * 1.3);
 @content-spacing-bottom: (@navbar-height * 0.3);
 
-@call-to-action-height: 90px;
-
 .content {
-   padding-top: round(@content-spacing-top);
+   //padding-top: round(@content-spacing-top);
    padding-bottom: round(@content-spacing-bottom);
    min-height: round(@content-spacing-top * 3);
 }
 
 body.home {
+  .outer-wrap.container-fluid {
+    .page-header {
+      #header-background-image {
+        .header-inner {
+          border-bottom: 0;
+          h1 {
+            font-size: 24px;
+            .primary-color-base;
+            letter-spacing: 4px;
+            @media (min-width: @screen-sm-min) {
+              font-size: 24px;
+            }
+            @media (min-width: @screen-md-min) {
+              font-size: 60px;
+            }
+            @media (min-width: @screen-lg-min) {
+              font-size: 100px;
+            }
+          }
+          .lead {
+            color: #fff;
+            font-size: @font-size-large;
+            letter-spacing: 1px;
+            &.lead-top {
+              margin-bottom: 0;
+              padding-bottom: 0;
+            }
+            @media (min-width: @screen-sm-min) {
+              font-size: @font-size-large;
+            }
+            @media (min-width: @screen-md-min) {
+              font-size: 28px;
+            }
+            @media (min-width: @screen-lg-min) {
+              font-size: 32px;
+              letter-spacing: 2px;
+            }
+          }
+        }
+      }
+    }
+  }
   .content {
     padding-top: 0;
     .main {
@@ -325,8 +380,17 @@ body.about {
 .main {
   text-align: center;
   color: @gray-light;
+  img {
+    margin-left: auto;
+    margin-right: auto;
+  }
   p {
     font-size: 18px;
+    text-align: center;
+    img {
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 }
 
