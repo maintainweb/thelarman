@@ -1,6 +1,4 @@
 <?php
-
-
   $header_height = get_field('header_height');
   if( empty($header_height) ){
     $header_height = get_field('default_header_height', 'options');
@@ -85,8 +83,8 @@ $prev = get_field('previous_link');
                 <p class="project">Project: <span class="blue"><?php echo $project ?></span></p>
               </div>
               <div class="project-nav">
-                <a class="prev" href="<?php echo $prev ?>"><i class="fa fa-2x fa-chevron-left"></i></a>
-                <a class="next" href="<?php echo $next ?>"><i class="fa fa-2x fa-chevron-right"></i></a>
+                <a class="prev" href="<?php echo $prev ?>"><i class="fa fa-3x fa-angle-left"></i></a>
+                <a class="next" href="<?php echo $next ?>"><i class="fa fa-3x fa-angle-right"></i></a>
               </div>
             </div>
           <?php } ?>

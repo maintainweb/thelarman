@@ -5,3 +5,4 @@
     </div>
   </article>
 <?php endwhile; ?>
+<div data-spy="affix" data-offset-top="600" class="arrow-to-top"><a href="#top"><i class="fa fa-5x fa-angle-up"></i></a></div>

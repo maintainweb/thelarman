@@ -42,15 +42,6 @@
    Base
    ========================================================================== */
 
-
-
-
-body.logged-in.admin-bar {
-   .navbar-fixed-top {
-      top: 32px;
-   }
-}
-
 /* ==========================================================================
    Header
    ========================================================================== */
@@ -58,22 +49,29 @@ body.logged-in.admin-bar {
 .banner {
   text-transform: uppercase;
    &.navbar-clear {
-      /*background-color: fade(@navbar-clear-bg, 40%);
-      .transition(0.5s 0 all ease);
-      */
       border: 0;
       background-color: transparent;
       font-weight: 700;
       padding-bottom: 0;
       margin-bottom: 0;
+      .transition(0.5s 0 all ease);
+     &.affix {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(9,20,41,0.95);
+      z-index: 2000;
+      .transition(0.5s 0 all ease);
+     }
    }
    .navbar-brand{
-      @brand-height: (@navbar-height - 30px);
-      @brand-width: (@navbar-height * 2.2);
+      @brand-height: (@navbar-height * 0.5);
+      @brand-width: (@navbar-height * 1.0);
       .size(@brand-width; @brand-height);
       background-repeat: no-repeat;
       background-position: center center;
-      background-size: contain;
+      background-size: 50%;
       .text-hide();
       .center-block();
       @calc-margin: (@navbar-height - @brand-height);
@@ -83,6 +81,21 @@ body.logged-in.admin-bar {
    }
 }
 
+body.logged-in.admin-bar {
+  .banner {
+    &.navbar-clear {
+      &.affix {
+        top: 32px;
+      }
+    }
+  }
+}
+
+body.logged-in.admin-bar {
+   .navbar-fixed-top {
+      top: 32px;
+   }
+}
 /* ==========================================================================
    Content
    ========================================================================== */
@@ -122,7 +135,7 @@ body.single {
       background-repeat: no-repeat;
       background-position: bottom center;
       .header-inner {
-        padding-top: round(@content-spacing-top - 10);
+        padding-top: round(@content-spacing-top + 20);
         h1 {
           margin: 0;
           font-size: 24px;
@@ -143,6 +156,7 @@ body.single {
           .primary-color-base;
           font-size: @font-size-large;
           letter-spacing: 1px;
+          font-weight: 100;
           &.lead-top {
             margin-bottom: 0;
             padding-bottom: 0;
@@ -202,6 +216,38 @@ body.single {
     img {
       margin-left: auto;
       margin-right: auto;
+    }
+  }
+}
+
+@element-spacing: 60px;
+
+.text-para {
+  padding-bottom: @element-spacing;
+}
+
+.img-para {
+  padding-bottom: (@element-spacing * 0.5);
+}
+
+.arrow-to-top {
+  position: fixed;
+  top: 50%;
+  right: 30px;
+  a {
+    color: rgba(255,255,255,0.0);
+    .transition(0.5s 0 all ease);
+  }
+  &.affix-top {
+    .invisible();
+    .transition(0.5s 0 all ease);
+  }
+  &.affix {
+    .show();
+    .transition(0.5s 0 all ease);
+    a {
+      color: rgba(19,30,85,1);
+      .transition(0.5s 0 all ease);
     }
   }
 }
@@ -370,6 +416,39 @@ body.home {
 body.about {
   .content {
     padding-top: 0;
+  }
+}
+
+body.contact {
+  .outer-wrap.container-fluid {
+    .page-header {
+      #header-background-image {
+        .header-inner {
+          padding-top: 140px;
+          h1 {
+
+          }
+          .lead {
+
+          }
+          .project-info {
+            .client {
+              display: none;
+            }
+            .project {
+              display: none;
+            }
+            &:before {
+              display: none;
+              content: "";
+            }
+          }
+          .project-nav {
+            display: none;
+          }
+        }
+      }
+    }
   }
 }
 
