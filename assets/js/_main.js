@@ -48,6 +48,12 @@ var Roots = {
         }
       });
 
+      $('.carousel').carousel({
+        interval: 2000,
+        wrap: true,
+        pause: false
+      });
+
       // Smooth Scroll
       $('a[href*=#]:not([href=#])').click(function() {
           if (location.pathname.replace(/^\//,'') === this.pathname.replace(/^\//,'') || location.hostname === this.hostname) {

@@ -230,6 +230,15 @@ body.single {
   padding-bottom: (@element-spacing * 0.5);
 }
 
+.carousel-block {
+  padding-bottom: (@element-spacing * 0.5);
+}
+
+.video-block {
+  width: 90%;
+  margin: 0 auto;
+}
+
 .arrow-to-top {
   position: fixed;
   top: 50%;
@@ -417,6 +426,9 @@ body.about {
   .content {
     padding-top: 0;
   }
+  .btn {
+    display: inline-block;
+  }
 }
 
 body.contact {
@@ -571,6 +583,67 @@ body.contact {
 
 
 
+.carousel.fade
+{
+    opacity: 1;
+
+    .item
+    {
+        -moz-transition: opacity ease-in-out 1.0s;
+        -o-transition: opacity ease-in-out 1.0s;
+        -webkit-transition: opacity ease-in-out 1.0s;
+        transition: opacity ease-in-out 1.0s;
+        left: 0 !important;
+        opacity: 0;
+        top:0;
+        position:absolute;
+        width: 100%;
+        display:block !important;
+        z-index:1;
+        &:first-child{
+            top:auto;
+            position:relative;
+        }
+
+        &.active
+        {
+            opacity: 1;
+            -moz-transition: opacity ease-in-out 1.0s;
+            -o-transition: opacity ease-in-out 1.0s;
+            -webkit-transition: opacity ease-in-out 1.0s;
+            transition: opacity ease-in-out 1.0s;
+            z-index:2;
+        }
+    }
+}
+
+body.digital-web-print {
+  #header-image {
+    margin-top: -60px;
+  }
+}
+
+body.young-adult,
+body.tv-video,
+body.partner-promotion,
+body.sports-promotion {
+  #header-image {
+    margin-top: -80px;
+  }
+}
+
+/*
+.carousel.carousel-fade .item {
+  opacity:0;
+  .transition(0.5s 0 all ease);
+}
+
+.carousel.carousel-fade .active.item {
+    opacity:1;
+    .transition(0.5s 0 all ease);
+}
+*/
+
 /* ==========================================================================
    WordPress Generated Classes
    See: http://codex.wordpress.org/CSS#WordPress_Generated_Classes
@@ -587,8 +660,20 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
    Media Queries
    ========================================================================== */
 
-@media (min-width: @screen-sm-min) { }
+@media (min-width: @screen-sm-min) {
+  .video-block {
+    width: 90%;
+  }
+}
 
-@media (min-width: @screen-md-min) { }
+@media (min-width: @screen-md-min) {
+  .video-block {
+    width: 80%;
+  }
+}
 
-@media (min-width: @screen-lg-min) { }
+@media (min-width: @screen-lg-min) {
+  .video-block {
+    width: 70%;
+  }
+}
